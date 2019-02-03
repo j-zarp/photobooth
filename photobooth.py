@@ -34,6 +34,7 @@ import os
 import sys
 import time
 import datetime
+import subprocess
 import numpy as np
 from shutil import copyfile
 from functools import partial
@@ -665,8 +666,14 @@ class ScreenDisplay(Screen):
             self.ids.image_area_id.source = img_full_path
 
     def print_image(self):
-        #TODO implement function to print the captured image...
         pass
+        #TODO check behavior with real printer
+        # img_full_path = os.path.join('static/out',self.img_fname)
+        # bashCommand = "lp " + img_full_path
+        # process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+        # output, error = process.communicate()
+        # print('output:', output)
+        # print('error:', error)
 
 
 class ScreenManagerLang(ScreenManager):
