@@ -95,14 +95,15 @@ Builder.load_string("""
         valign: 'top'
         halign: 'center'
     GridLayout:
-        cols: 3
-        size_hint_y: .45
-        pos_hint: {'center_x': .5, 'center_y': .5}
+        cols: 2
+        size_hint_y: .85
+        size_hint_x: .85
+        pos_hint: {'center_x': .5}
+        spacing: [10, 10.]
         Button:
             text: "Empty / Vide"
             font_size: 25
             on_press:
-                #root.manager.get_screen('screen_capture').save_choice('bg_name','')
                 root.manager.current = "screen_style"
         Button:
             text: "Frame / Cadre"
@@ -118,6 +119,81 @@ Builder.load_string("""
             background_down: 'static/landscapes/matterhorn.jpg'
             on_press: 
                 root.manager.current = "screen_background"
+        Button:
+            text: "Picture / Tableau"
+            font_size: 25
+            background_normal: 'static/pictures/dali.jpg'
+            background_down: 'static/pictures/dali.jpg'
+            on_press: 
+                root.manager.current = "screen_picture"
+
+<ScreenPicture>
+    Label:
+        id: text_id
+        text: "Choose a picture"
+        font_size: 80
+        text_size: self.size
+        valign: 'top'
+        halign: 'center'
+    GridLayout:
+        cols: 3
+        size_hint_y: .85
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        spacing: [8, 8.]
+        Button:
+            text: "Scream"
+            font_size: 25
+            background_normal: 'static/pictures/scream.jpg'
+            background_down: 'static/pictures/scream.jpg'
+            on_press:
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/scream.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/scream.ckpt')
+                root.manager.current = "screen_capture"
+        Button:
+            text: "Udnie"
+            font_size: 25
+            background_normal: 'static/pictures/udnie.jpg'
+            background_down: 'static/pictures/udnie.jpg'
+            on_press:
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/udnie.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/udnie.ckpt')
+                root.manager.current = "screen_capture"
+        Button:
+            text: "Dali"
+            font_size: 25
+            background_normal: 'static/pictures/dali.jpg'
+            background_down: 'static/pictures/dali.jpg'
+            on_press: 
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/dali.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/chkpt_dali')
+                root.manager.current = "screen_capture"
+        Button:
+            text: "Wave"
+            font_size: 25
+            background_normal: 'static/pictures/wave.jpg'
+            background_down: 'static/pictures/wave.jpg'
+            on_press: 
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/wave.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/wave.ckpt')
+                root.manager.current = "screen_capture"
+        Button:
+            text: "Rain"
+            font_size: 25
+            background_normal: 'static/pictures/rain.jpg'
+            background_down: 'static/pictures/rain.jpg'
+            on_press: 
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/rain.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/chkpt_rain')
+                root.manager.current = "screen_capture"
+        Button:
+            text: "Muse"
+            font_size: 25
+            background_normal: 'static/pictures/muse.jpg'
+            background_down: 'static/pictures/muse.jpg'
+            on_press: 
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/pictures/muse.jpg', True)
+                root.manager.get_screen('screen_capture').save_choice('style_path','/home/jeremie/Downloads/vignettes/kivy/fast_style_transfer/la_muse.ckpt')
+                root.manager.current = "screen_capture"
 
 <ScreenFrame>
     Label:
@@ -137,54 +213,48 @@ Builder.load_string("""
             background_normal: 'static/frames/frame_1.png'
             background_down: 'static/frames/frame_1.png'
             on_press:
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_1.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_1.png', True)
+                root.manager.current = "screen_style"
         Button:
             text: "2"
             font_size: 25
             background_normal: 'static/frames/frame_2.png'
             background_down: 'static/frames/frame_2.png'
             on_press:
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_2.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_2.png', True)
+                root.manager.current = "screen_style"
         Button:
             text: "3"
             font_size: 25
             background_normal: 'static/frames/frame_3.png'
             background_down: 'static/frames/frame_3.png'
             on_press: 
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_3.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_3.png', True)
+                root.manager.current = "screen_style"
         Button:
             text: "4"
             font_size: 25
             background_normal: 'static/frames/frame_4.png'
             background_down: 'static/frames/frame_4.png'
             on_press: 
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_4.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_4.png', True)
+                root.manager.current = "screen_style"
         Button:
             text: "5"
             font_size: 25
             background_normal: 'static/frames/frame_5.png'
             background_down: 'static/frames/frame_5.png'
             on_press: 
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_5.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_5.png', True)
+                root.manager.current = "screen_style"
         Button:
             text: "6"
             font_size: 25
             background_normal: 'static/frames/frame_6.png'
             background_down: 'static/frames/frame_6.png'
             on_press: 
-                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_6.png')
-                root.manager.get_screen('screen_capture').save_choice('style_path','')
-                root.manager.current = "screen_capture"
+                root.manager.get_screen('screen_capture').save_choice('bg_name','static/frames/frame_6.png', True)
+                root.manager.current = "screen_style"
 
 <ScreenBackground>
     Label:
@@ -363,16 +433,6 @@ Builder.load_string("""
         id: cam_id
         pos_hint: {'center_x': .5, 'center_y': .5}
     GridLayout:
-    #    size_hint: 1.0, 1.0
-    #    pos_hint: {'center_x': .5, 'center_y': .5}
-    #    rows:1
-    #    canvas.before:
-    #        BorderImage:
-    #            # BorderImage behaves like the CSS BorderImage
-    #            border: 10, 10, 10, 10
-    #            source: 'static/backgrounds/gradient.jpg'
-    #            pos: self.pos
-    #            size: self.size
 
     Button:
         id: capture_button_id
@@ -434,6 +494,7 @@ class KivyCamera(Image):
         super(KivyCamera, self).__init__(**kwargs)
         self.bg_image = None
         self.current_img = None
+        self.current_mask = None
 
         serial = fn.getDeviceSerialNumber(0)
         self.device = fn.openDevice(serial, pipeline=pipeline)
@@ -481,7 +542,7 @@ class KivyCamera(Image):
         if(self.bg_image is not None):
             if(self.bg_image.shape[2] == 4): # put frame around picture
                 fgMask = self.bg_image[:,:,2]>0
-            else: # modify backgrund
+            else: # modify background
                 # if needed: denoise filter
                 #depth_img = cv2.medianBlur(depth_img, 5)
                 #depth_img = cv2.GaussianBlur(depth_img, (9,9), 0)
@@ -496,11 +557,13 @@ class KivyCamera(Image):
             fgMask_3d = np.dstack((fgMask, fgMask, fgMask)).astype(np.bool) # mask is 1 channel, color is 3 channels
             final_img = np.where(fgMask_3d, self.bg_image[:,:,:3], color_img[:,:,:3])
         else:
+            fgMask_3d = None
             final_img = color_img[:,:,:3]
 
         self.listener.release(frames)
 
         self.current_img = final_img
+        self.current_mask = fgMask_3d
         self.display_img(final_img)
 
     def display_img(self, img):
@@ -531,6 +594,15 @@ class ScreenSelection(Screen):
             self.ids.text_id.text = 'Choose a mode'
         else:
             self.ids.text_id.text = 'Choisissez un mode'
+
+class ScreenPicture(Screen):
+    def __init__(self, **kwargs):
+        super(ScreenPicture, self).__init__(**kwargs)
+    def on_pre_enter(self):
+        if(screenmanager.language == 'EN'):
+            self.ids.text_id.text = 'Choose a Picture'
+        else:
+            self.ids.text_id.text = 'Choisissez un tableau'
 
 class ScreenFrame(Screen):
     def __init__(self, **kwargs):
@@ -577,11 +649,14 @@ class ScreenCapture(Screen):
         self.ids.capture_button_id.text = 'Capture'
         self.ids.capture_button_id.disabled = False
 
-    def save_choice(self, name, value):
+    def save_choice(self, name, value, keep_unchanged=False):
         setattr(self, name, value)
         if(name=='bg_name'):
             bg_image = cv2.imread(self.bg_name, cv2.IMREAD_UNCHANGED)
-            self.ids.cam_id.bg_image = cv2.resize(bg_image, self.img_size)
+            bg_image = cv2.resize(bg_image, self.img_size)
+            self.ids.cam_id.bg_image = bg_image
+            if(keep_unchanged):
+                screenmanager.get_screen('screen_display').orig_background = bg_image
 
 
     def start_countdown(self):
@@ -612,8 +687,9 @@ class ScreenCapture(Screen):
             self.img_fname = 'captured_' + now + '.jpg'
             cv2.imwrite(os.path.join('static/in',self.img_fname), self.ids.cam_id.current_img)
 
-            # set filename to None (not ready) for the display screen
+            # set filename to None (not ready) for the display screen and pass mask
             screenmanager.get_screen('screen_display').img_fname = None
+            screenmanager.get_screen('screen_display').img_mask = self.ids.cam_id.current_mask
 
             if(not self.style_path): # no defined style to be applied
                 copyfile(os.path.join('static/in',self.img_fname), os.path.join('static/out',self.img_fname))
@@ -622,7 +698,6 @@ class ScreenCapture(Screen):
                 screenmanager.get_screen('screen_display').img_fname = self.img_fname
                 Clock.schedule_once(self.go_to_display_screen, 2)
             else:
-                style = os.path.splitext(self.style_path.split('/')[-1])[0]
                 self.go_to_display_screen()
                 Thread(target=self.apply_style).start() # launch on new thread
 
@@ -647,6 +722,8 @@ class ScreenDisplay(Screen):
     def __init__(self, **kwargs):
         super(ScreenDisplay, self).__init__(**kwargs)
         self.img_fname = None
+        self.img_mask = None
+        self.orig_background = None
 
     def on_pre_enter(self):
         self.ids.image_area_id.source = 'static/gifs/loading_4.gif'
@@ -663,7 +740,12 @@ class ScreenDisplay(Screen):
         if(self.img_fname is not None):
             Clock.unschedule(self.update_background)
             img_full_path = os.path.join('static/out',self.img_fname)
+            if(self.orig_background is not None): # in the case where we need to restore the original background
+              img = cv2.imread(img_full_path, cv2.IMREAD_UNCHANGED)
+              img = np.where(self.img_mask, self.orig_background[:,:,:3], img[:,:,:3])
+              cv2.imwrite(img_full_path, img)
             self.ids.image_area_id.source = img_full_path
+            self.orig_background = None
 
     def print_image(self):
         pass
@@ -711,6 +793,7 @@ if __name__ == '__main__':
     screenmanager = ScreenManagerLang()
     screenmanager.add_widget(ScreenStart(name="screen_start"))
     screenmanager.add_widget(ScreenSelection(name="screen_selection"))
+    screenmanager.add_widget(ScreenPicture(name="screen_picture"))
     screenmanager.add_widget(ScreenFrame(name="screen_frame"))
     screenmanager.add_widget(ScreenBackground(name="screen_background"))
     screenmanager.add_widget(ScreenStyle(name="screen_style"))
